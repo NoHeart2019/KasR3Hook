@@ -1,0 +1,807 @@
+_Success_(return != 0)
+INT32
+WINAPI
+CompareFileTime(
+    _In_ CONST ULONG_PTR lpFileTime1,
+    _In_ CONST ULONG_PTR lpFileTime2
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+CreateDirectoryA(
+    _In_ PCHAR lpPathName,
+    _In_opt_ ULONG_PTR lpSecurityAttributes
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+CreateDirectoryW(
+    _In_ PWCHAR lpPathName,
+    _In_opt_ ULONG_PTR lpSecurityAttributes
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+CreateFileA(
+    _In_ PCHAR lpFileName,
+    _In_ INT32 dwDesiredAccess,
+    _In_ INT32 dwShareMode,
+    _In_opt_ ULONG_PTR lpSecurityAttributes,
+    _In_ INT32 dwCreationDisposition,
+    _In_ INT32 dwFlagsAndAttributes,
+    _In_opt_ ULONG_PTR hTemplateFile
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+CreateFileW(
+    _In_ PWCHAR lpFileName,
+    _In_ INT32 dwDesiredAccess,
+    _In_ INT32 dwShareMode,
+    _In_opt_ ULONG_PTR lpSecurityAttributes,
+    _In_ INT32 dwCreationDisposition,
+    _In_ INT32 dwFlagsAndAttributes,
+    _In_opt_ ULONG_PTR hTemplateFile
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+DefineDosDeviceW(
+    _In_ INT32 dwFlags,
+    _In_ PWCHAR lpDeviceName,
+    _In_opt_ PWCHAR lpTargetPath
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+DeleteFileA(
+    _In_ PCHAR lpFileName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+DeleteFileW(
+    _In_ PWCHAR lpFileName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+DeleteVolumeMountPointW(
+    _In_ PWCHAR lpszVolumeMountPoint
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FileTimeToLocalFileTime(
+    _In_ CONST ULONG_PTR lpFileTime,
+    _Out_ PINT+64 lpLocalFileTime
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FindClose(
+    _Inout_ ULONG_PTR hFindFile
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FindCloseChangeNotification(
+    _In_ ULONG_PTR hChangeHandle
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstChangeNotificationA(
+    _In_ PCHAR lpPathName,
+    _In_ INT32 bWatchSubtree,
+    _In_ INT32 dwNotifyFilter
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstChangeNotificationW(
+    _In_ PWCHAR lpPathName,
+    _In_ INT32 bWatchSubtree,
+    _In_ INT32 dwNotifyFilter
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstFileA(
+    _In_ PCHAR lpFileName,
+    _Out_ ULONG_PTR lpFindFileData
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstFileW(
+    _In_ PWCHAR lpFileName,
+    _Out_ ULONG_PTR lpFindFileData
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstFileExA(
+    _In_ PCHAR lpFileName,
+    _In_ ULONG_PTR fInfoLevelId,
+    _Out_writes_bytes_(sizeof(WIN32_FIND_DATAA)) PVOID lpFindFileData,
+    _In_ ULONG_PTR fSearchOp,
+    _Reserved_ PVOID lpSearchFilter,
+    _In_ INT32 dwAdditionalFlags
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstFileExW(
+    _In_ PWCHAR lpFileName,
+    _In_ ULONG_PTR fInfoLevelId,
+    _Out_writes_bytes_(sizeof(WIN32_FIND_DATAW)) PVOID lpFindFileData,
+    _In_ ULONG_PTR fSearchOp,
+    _Reserved_ PVOID lpSearchFilter,
+    _In_ INT32 dwAdditionalFlags
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstVolumeW(
+    _Out_writes_(cchBufferLength) PWCHAR lpszVolumeName,
+    _In_ INT32 cchBufferLength
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FindNextChangeNotification(
+    _In_ ULONG_PTR hChangeHandle
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FindNextFileA(
+    _In_ ULONG_PTR hFindFile,
+    _Out_ ULONG_PTR lpFindFileData
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FindNextFileW(
+    _In_ ULONG_PTR hFindFile,
+    _Out_ ULONG_PTR lpFindFileData
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FindNextVolumeW(
+    _Inout_ ULONG_PTR hFindVolume,
+    _Out_writes_(cchBufferLength) PWCHAR lpszVolumeName,
+    _In_ INT32 cchBufferLength
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FindVolumeClose(
+    _In_ ULONG_PTR hFindVolume
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+FlushFileBuffers(
+    _In_ ULONG_PTR hFile
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetDiskFreeSpaceA(
+    _In_opt_ PCHAR lpRootPathName,
+    _Out_opt_ PINT+32 lpSectorsPerCluster,
+    _Out_opt_ PINT+32 lpBytesPerSector,
+    _Out_opt_ PINT+32 lpNumberOfFreeClusters,
+    _Out_opt_ PINT+32 lpTotalNumberOfClusters
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetDiskFreeSpaceW(
+    _In_opt_ PWCHAR lpRootPathName,
+    _Out_opt_ PINT+32 lpSectorsPerCluster,
+    _Out_opt_ PINT+32 lpBytesPerSector,
+    _Out_opt_ PINT+32 lpNumberOfFreeClusters,
+    _Out_opt_ PINT+32 lpTotalNumberOfClusters
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetDiskFreeSpaceExA(
+    _In_opt_ PCHAR lpDirectoryName,
+    _Out_opt_ ULONG_PTR lpFreeBytesAvailableToCaller,
+    _Out_opt_ ULONG_PTR lpTotalNumberOfBytes,
+    _Out_opt_ ULONG_PTR lpTotalNumberOfFreeBytes
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetDiskFreeSpaceExW(
+    _In_opt_ PWCHAR lpDirectoryName,
+    _Out_opt_ ULONG_PTR lpFreeBytesAvailableToCaller,
+    _Out_opt_ ULONG_PTR lpTotalNumberOfBytes,
+    _Out_opt_ ULONG_PTR lpTotalNumberOfFreeBytes
+    );
+
+_Success_(return != 0)
+HRESULT
+WINAPI
+GetDiskSpaceInformationA(
+    _In_opt_ PCHAR rootPath,
+    _Out_ ULONG_PTR diskSpaceInfo
+    );
+
+_Success_(return != 0)
+HRESULT
+WINAPI
+GetDiskSpaceInformationW(
+    _In_opt_ PWCHAR rootPath,
+    _Out_ ULONG_PTR diskSpaceInfo
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetDriveTypeA(
+    _In_opt_ PCHAR lpRootPathName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetDriveTypeW(
+    _In_opt_ PWCHAR lpRootPathName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileAttributesA(
+    _In_ PCHAR lpFileName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileAttributesW(
+    _In_ PWCHAR lpFileName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileAttributesExA(
+    _In_ PCHAR lpFileName,
+    _In_ ULONG_PTR fInfoLevelId,
+    _Out_writes_bytes_(sizeof(WIN32_FILE_ATTRIBUTE_DATA)) PVOID lpFileInformation
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileAttributesExW(
+    _In_ PWCHAR lpFileName,
+    _In_ ULONG_PTR fInfoLevelId,
+    _Out_writes_bytes_(sizeof(WIN32_FILE_ATTRIBUTE_DATA)) PVOID lpFileInformation
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileInformationByHandle(
+    _In_ ULONG_PTR hFile,
+    _Out_ ULONG_PTR lpFileInformation
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileSize(
+    _In_ ULONG_PTR hFile,
+    _Out_opt_ PINT+32 lpFileSizeHigh
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileSizeEx(
+    _In_ ULONG_PTR hFile,
+    _Out_ ULONG_PTR lpFileSize
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileType(
+    _In_ ULONG_PTR hFile
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFinalPathNameByHandleA(
+    _In_ ULONG_PTR hFile,
+    _Out_writes_(cchFilePath) PCHAR lpszFilePath,
+    _In_ INT32 cchFilePath,
+    _In_ INT32 dwFlags
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFinalPathNameByHandleW(
+    _In_ ULONG_PTR hFile,
+    _Out_writes_(cchFilePath) PWCHAR lpszFilePath,
+    _In_ INT32 cchFilePath,
+    _In_ INT32 dwFlags
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetFileTime(
+    _In_ ULONG_PTR hFile,
+    _Out_opt_ PINT+64 lpCreationTime,
+    _Out_opt_ PINT+64 lpLastAccessTime,
+    _Out_opt_ PINT+64 lpLastWriteTime
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetLogicalDrives(
+    VOID
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetLogicalDriveStringsW(
+    _In_ INT32 nBufferLength,
+    _Out_writes_to_opt_(nBufferLength,return + 1) PWCHAR lpBuffer
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetTempFileNameW(
+    _In_ PWCHAR lpPathName,
+    _In_ PWCHAR lpPrefixString,
+    _In_ INT32 uUnique,
+    _Out_writes_(MAX_PATH) PWCHAR lpTempFileName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetVolumeInformationByHandleW(
+    _In_ ULONG_PTR hFile,
+    _Out_writes_opt_(nVolumeNameSize) PWCHAR lpVolumeNameBuffer,
+    _In_ INT32 nVolumeNameSize,
+    _Out_opt_ PINT+32 lpVolumeSerialNumber,
+    _Out_opt_ PINT+32 lpMaximumComponentLength,
+    _Out_opt_ PINT+32 lpFileSystemFlags,
+    _Out_writes_opt_(nFileSystemNameSize) PWCHAR lpFileSystemNameBuffer,
+    _In_ INT32 nFileSystemNameSize
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetVolumeInformationW(
+    _In_opt_ PWCHAR lpRootPathName,
+    _Out_writes_opt_(nVolumeNameSize) PWCHAR lpVolumeNameBuffer,
+    _In_ INT32 nVolumeNameSize,
+    _Out_opt_ PINT+32 lpVolumeSerialNumber,
+    _Out_opt_ PINT+32 lpMaximumComponentLength,
+    _Out_opt_ PINT+32 lpFileSystemFlags,
+    _Out_writes_opt_(nFileSystemNameSize) PWCHAR lpFileSystemNameBuffer,
+    _In_ INT32 nFileSystemNameSize
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetVolumePathNameW(
+    _In_ PWCHAR lpszFileName,
+    _Out_writes_(cchBufferLength) PWCHAR lpszVolumePathName,
+    _In_ INT32 cchBufferLength
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+LocalFileTimeToFileTime(
+    _In_ CONST ULONG_PTR lpLocalFileTime,
+    _Out_ PINT+64 lpFileTime
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+LockFile(
+    _In_ ULONG_PTR hFile,
+    _In_ INT32 dwFileOffsetLow,
+    _In_ INT32 dwFileOffsetHigh,
+    _In_ INT32 nNumberOfBytesToLockLow,
+    _In_ INT32 nNumberOfBytesToLockHigh
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+LockFileEx(
+    _In_ ULONG_PTR hFile,
+    _In_ INT32 dwFlags,
+    _Reserved_ INT32 dwReserved,
+    _In_ INT32 nNumberOfBytesToLockLow,
+    _In_ INT32 nNumberOfBytesToLockHigh,
+    _Inout_ ULONG_PTR lpOverlapped
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+QueryDosDeviceW(
+    _In_opt_ PWCHAR lpDeviceName,
+    _Out_writes_to_opt_(ucchMax,return) PWCHAR lpTargetPath,
+    _In_ INT32 ucchMax
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+RemoveDirectoryA(
+    _In_ PCHAR lpPathName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+RemoveDirectoryW(
+    _In_ PWCHAR lpPathName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetEndOfFile(
+    _In_ ULONG_PTR hFile
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetFileAttributesA(
+    _In_ PCHAR lpFileName,
+    _In_ INT32 dwFileAttributes
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetFileAttributesW(
+    _In_ PWCHAR lpFileName,
+    _In_ INT32 dwFileAttributes
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetFileInformationByHandle(
+    _In_ ULONG_PTR hFile,
+    _In_ ULONG_PTR FileInformationClass,
+    _In_reads_bytes_(dwBufferSize) PVOID lpFileInformation,
+    _In_ INT32 dwBufferSize
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetFilePointer(
+    _In_ ULONG_PTR hFile,
+    _In_ INT32 lDistanceToMove,
+    _Inout_opt_ ULONG_PTR lpDistanceToMoveHigh,
+    _In_ INT32 dwMoveMethod
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetFilePointerEx(
+    _In_ ULONG_PTR hFile,
+    _In_ INT64 liDistanceToMove,
+    _Out_opt_ ULONG_PTR lpNewFilePointer,
+    _In_ INT32 dwMoveMethod
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetFileTime(
+    _In_ ULONG_PTR hFile,
+    _In_opt_ CONST ULONG_PTR lpCreationTime,
+    _In_opt_ CONST ULONG_PTR lpLastAccessTime,
+    _In_opt_ CONST ULONG_PTR lpLastWriteTime
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetFileValidData(
+    _In_ ULONG_PTR hFile,
+    _In_ INT64 ValidDataLength
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+UnlockFile(
+    _In_ ULONG_PTR hFile,
+    _In_ INT32 dwFileOffsetLow,
+    _In_ INT32 dwFileOffsetHigh,
+    _In_ INT32 nNumberOfBytesToUnlockLow,
+    _In_ INT32 nNumberOfBytesToUnlockHigh
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+UnlockFileEx(
+    _In_ ULONG_PTR hFile,
+    _Reserved_ INT32 dwReserved,
+    _In_ INT32 nNumberOfBytesToUnlockLow,
+    _In_ INT32 nNumberOfBytesToUnlockHigh,
+    _Inout_ ULONG_PTR lpOverlapped
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+WriteFile(
+    _In_ ULONG_PTR hFile,
+    _In_reads_bytes_opt_(3) PVOID lpBuffer,
+    _In_ INT32 nNumberOfBytesToWrite,
+    _Out_opt_ PINT+32 lpNumberOfBytesWritten,
+    _Inout_opt_ ULONG_PTR lpOverlapped
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+WriteFileEx(
+    _In_ ULONG_PTR hFile,
+    _In_reads_bytes_opt_(3) PVOID lpBuffer,
+    _In_ INT32 nNumberOfBytesToWrite,
+    _Inout_ ULONG_PTR lpOverlapped,
+    _In_ ULONG_PTR lpCompletionRoutine
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+WriteFileGather(
+    _In_ ULONG_PTR hFile,
+    _In_ ULONG_PTR aSegmentArray[],
+    _In_ INT32 nNumberOfBytesToWrite,
+    _Reserved_ PINT+32 lpReserved,
+    _Inout_ ULONG_PTR lpOverlapped
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetTempPathW(
+    _In_ INT32 nBufferLength,
+    _Out_writes_to_opt_(nBufferLength,return + 1) PWCHAR lpBuffer
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetVolumeNameForVolumeMountPointW(
+    _In_ PWCHAR lpszVolumeMountPoint,
+    _Out_writes_(cchBufferLength) PWCHAR lpszVolumeName,
+    _In_ INT32 cchBufferLength
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetVolumePathNamesForVolumeNameW(
+    _In_ PWCHAR lpszVolumeName,
+    _Out_writes_to_opt_(cchBufferLength,*lpcchReturnLength) _Post_ _NullNull_terminated_ ULONG_PTR lpszVolumePathNames,
+    _In_ INT32 cchBufferLength,
+    _Out_ PINT+32 lpcchReturnLength
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+CreateFile2(
+    _In_ PWCHAR lpFileName,
+    _In_ INT32 dwDesiredAccess,
+    _In_ INT32 dwShareMode,
+    _In_ INT32 dwCreationDisposition,
+    _In_opt_ ULONG_PTR pCreateExParams
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+SetFileIoOverlappedRange(
+    _In_ ULONG_PTR FileHandle,
+    _In_ ULONG_PTR OverlappedRangeStart,
+    _In_ INT32 Length
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetCompressedFileSizeA(
+    _In_ PCHAR lpFileName,
+    _Out_opt_ PINT+32 lpFileSizeHigh
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetCompressedFileSizeW(
+    _In_ PWCHAR lpFileName,
+    _Out_opt_ PINT+32 lpFileSizeHigh
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstStreamW(
+    _In_ PWCHAR lpFileName,
+    _In_ ULONG_PTR InfoLevel,
+    _Out_writes_bytes_(sizeof(WIN32_FIND_STREAM_DATA)) PVOID lpFindStreamData,
+    _Reserved_ INT32 dwFlags
+    );
+
+_Success_(return != 0)
+INT32
+APIENTRY
+FindNextStreamW(
+    _In_ ULONG_PTR hFindStream,
+    _Out_writes_bytes_(sizeof(WIN32_FIND_STREAM_DATA)) PVOID lpFindStreamData
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+AreFileApisANSI(
+    VOID
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetTempPathA(
+    _In_ INT32 nBufferLength,
+    _Out_writes_to_opt_(nBufferLength,return + 1) PCHAR lpBuffer
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+FindFirstFileNameW(
+    _In_ PWCHAR lpFileName,
+    _In_ INT32 dwFlags,
+    _Inout_ PINT+32 StringLength,
+    _Out_writes_(*StringLength) PWCHAR LinkName
+    );
+
+_Success_(return != 0)
+INT32
+APIENTRY
+FindNextFileNameW(
+    _In_ ULONG_PTR hFindStream,
+    _Inout_ PINT+32 StringLength,
+    _Out_writes_(*StringLength) PWCHAR LinkName
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetVolumeInformationA(
+    _In_opt_ PCHAR lpRootPathName,
+    _Out_writes_opt_(nVolumeNameSize) PCHAR lpVolumeNameBuffer,
+    _In_ INT32 nVolumeNameSize,
+    _Out_opt_ PINT+32 lpVolumeSerialNumber,
+    _Out_opt_ PINT+32 lpMaximumComponentLength,
+    _Out_opt_ PINT+32 lpFileSystemFlags,
+    _Out_writes_opt_(nFileSystemNameSize) PCHAR lpFileSystemNameBuffer,
+    _In_ INT32 nFileSystemNameSize
+    );
+
+_Success_(return != 0)
+INT32
+WINAPI
+GetTempFileNameA(
+    _In_ PCHAR lpPathName,
+    _In_ PCHAR lpPrefixString,
+    _In_ INT32 uUnique,
+    _Out_writes_(MAX_PATH) PCHAR lpTempFileName
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+SetFileApisToOEM(
+    VOID
+    );
+
+_Success_(return != 0)
+ULONG_PTR
+WINAPI
+SetFileApisToANSI(
+    VOID
+    );
+
+_Success_(return != 0)
+BOOL
+WINAPI
+ReadFile(
+    _In_ ULONG_PTR hFile,
+    _Out_writes_bytes_to_opt_(4) PVOID lpBuffer,
+    _In_ INT32 nNumberOfBytesToRead,
+    _Out_opt_ PINT+32 lpNumberOfBytesRead,
+    _Inout_opt_ ULONG_PTR lpOverlapped
+    );
+
+_Success_(return != 0)
+BOOL
+WINAPI
+ReadFileEx(
+    _In_ ULONG_PTR hFile,
+    _Out_writes_bytes_opt_(4) __out_data_source(FILE) PVOID lpBuffer,
+    _In_ INT32 nNumberOfBytesToRead,
+    _Inout_ ULONG_PTR lpOverlapped,
+    _In_ ULONG_PTR lpCompletionRoutine
+    );
+
+_Success_(return != 0)
+BOOL
+WINAPI
+ReadFileScatter(
+    _In_ ULONG_PTR hFile,
+    _In_ ULONG_PTR aSegmentArray[],
+    _In_ INT32 nNumberOfBytesToRead,
+    _Reserved_ PINT+32 lpReserved,
+    _Inout_ ULONG_PTR lpOverlapped
+    );
+
