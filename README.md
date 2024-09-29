@@ -4,4 +4,5 @@
 使用 Intel 虚拟化特性实现应用层HOOK\
 &emsp; 1.排除Dll间函数调用\
 &emsp; 2.动态配置监控Api\
+OS: Vmware 1核心 EPT开启 windows 7 32 单进程
 ![Image text](MarkDown/Main.PNG)
