@@ -8,3 +8,4 @@ OS: Vmware 1核心 EPT开启 windows 7 32 单进程
 
 KasHookFunctionGenerate.exe 将window 头文件转成KasR3Hook的API声明的配置文件。\
 ![Image text](MarkDown/Main.PNG)
+![Image text](MarkDown/Filter.PNG)
