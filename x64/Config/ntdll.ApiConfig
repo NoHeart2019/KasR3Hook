@@ -1,0 +1,555 @@
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtOpenThreadToken(
+    __in ULONG_PTR ThreadHandle,
+    __in ULONG_PTR DesiredAccess,
+    __in PINT+32 OpenAsSelf,
+    __out ULONG_PTR TokenHandle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtOpenThreadTokenEx(
+    __in ULONG_PTR ThreadHandle,
+    __in ULONG_PTR DesiredAccess,
+    __in PINT+32 OpenAsSelf,
+    __in INT32 HandleAttributes,
+    __out ULONG_PTR TokenHandle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtOpenProcessToken(
+    __in ULONG_PTR ProcessHandle,
+    __in ULONG_PTR DesiredAccess,
+    __out ULONG_PTR TokenHandle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtOpenProcessTokenEx(
+    __in ULONG_PTR ProcessHandle,
+    __in ULONG_PTR DesiredAccess,
+    __in INT32 HandleAttributes,
+    __out ULONG_PTR TokenHandle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtDuplicateToken(
+    __in ULONG_PTR ExistingTokenHandle,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR ObjectAttributes,
+    __in PINT+32 EffectiveOnly,
+    __in ULONG_PTR TokenType,
+    __out ULONG_PTR NewTokenHandle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtFilterToken (
+    __in ULONG_PTR ExistingTokenHandle,
+    __in INT32 Flags,
+    __in_opt ULONG_PTR SidsToDisable,
+    __in_opt ULONG_PTR PrivilegesToDelete,
+    __in_opt ULONG_PTR RestrictedSids,
+    __out ULONG_PTR NewTokenHandle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtImpersonateAnonymousToken(
+    __in ULONG_PTR ThreadHandle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtQueryInformationToken (
+    __in ULONG_PTR TokenHandle,
+    __in ULONG_PTR TokenInformationClass,
+    __out_bcount_part_opt(4) PVOID TokenInformation,
+    __in INT32 TokenInformationLength,
+    __out PINT+64 ReturnLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtSetInformationToken (
+    __in ULONG_PTR TokenHandle,
+    __in ULONG_PTR TokenInformationClass,
+    __in_bcount(4) PVOID TokenInformation,
+    __in INT32 TokenInformationLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtAdjustPrivilegesToken (
+    __in ULONG_PTR TokenHandle,
+    __in PINT+32 DisableAllPrivileges,
+    __in_opt ULONG_PTR NewState,
+    __in INT32 BufferLength,
+    __out_bcount_part_opt(4) ULONG_PTR PreviousState,
+    __out __drv_when(PreviousState == NULL, __out_opt) PINT+64 ReturnLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtAdjustGroupsToken (
+    __in ULONG_PTR TokenHandle,
+    __in PINT+32 ResetToDefault,
+    __in_opt ULONG_PTR NewState,
+    __in_opt INT32 BufferLength,
+    __out_bcount_part_opt(4) ULONG_PTR PreviousState,
+    __out PINT+64 ReturnLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtPrivilegeCheck (
+    __in ULONG_PTR ClientToken,
+    __inout ULONG_PTR RequiredPrivileges,
+    __out PINT+32 Result
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtAccessCheckAndAuditAlarm (
+    __in ULONG_PTR SubsystemName,
+    __in_opt PVOID HandleId,
+    __in ULONG_PTR ObjectTypeName,
+    __in ULONG_PTR ObjectName,
+    __in ULONG_PTR SecurityDescriptor,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR GenericMapping,
+    __in PINT+32 ObjectCreation,
+    __out ULONG_PTR GrantedAccess,
+    __out ULONG_PTR AccessStatus,
+    __out PINT+32 GenerateOnClose
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtAccessCheckByTypeAndAuditAlarm (
+    __in ULONG_PTR SubsystemName,
+    __in_opt PVOID HandleId,
+    __in ULONG_PTR ObjectTypeName,
+    __in ULONG_PTR ObjectName,
+    __in ULONG_PTR SecurityDescriptor,
+    __in_opt ULONG_PTR PrincipalSelfSid,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR AuditType,
+    __in INT32 Flags,
+    __in_ecount_opt(11) ULONG_PTR ObjectTypeList,
+    __in INT32 ObjectTypeListLength,
+    __in ULONG_PTR GenericMapping,
+    __in PINT+32 ObjectCreation,
+    __out ULONG_PTR GrantedAccess,
+    __out ULONG_PTR AccessStatus,
+    __out PINT+32 GenerateOnClose
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtAccessCheckByTypeResultListAndAuditAlarm (
+    __in ULONG_PTR SubsystemName,
+    __in_opt PVOID HandleId,
+    __in ULONG_PTR ObjectTypeName,
+    __in ULONG_PTR ObjectName,
+    __in ULONG_PTR SecurityDescriptor,
+    __in_opt ULONG_PTR PrincipalSelfSid,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR AuditType,
+    __in INT32 Flags,
+    __in_ecount_opt(11) ULONG_PTR ObjectTypeList,
+    __in INT32 ObjectTypeListLength,
+    __in ULONG_PTR GenericMapping,
+    __in PINT+32 ObjectCreation,
+    __out_ecount(11) ULONG_PTR GrantedAccess,
+    __out_ecount(11) ULONG_PTR AccessStatus,
+    __out PINT+32 GenerateOnClose
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtAccessCheckByTypeResultListAndAuditAlarmByHandle (
+    __in ULONG_PTR SubsystemName,
+    __in_opt PVOID HandleId,
+    __in ULONG_PTR ClientToken,
+    __in ULONG_PTR ObjectTypeName,
+    __in ULONG_PTR ObjectName,
+    __in ULONG_PTR SecurityDescriptor,
+    __in_opt ULONG_PTR PrincipalSelfSid,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR AuditType,
+    __in INT32 Flags,
+    __in_ecount_opt(12) ULONG_PTR ObjectTypeList,
+    __in INT32 ObjectTypeListLength,
+    __in ULONG_PTR GenericMapping,
+    __in PINT+32 ObjectCreation,
+    __out_ecount(12) ULONG_PTR GrantedAccess,
+    __out_ecount(12) ULONG_PTR AccessStatus,
+    __out PINT+32 GenerateOnClose
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtOpenObjectAuditAlarm (
+    __in ULONG_PTR SubsystemName,
+    __in_opt PVOID HandleId,
+    __in ULONG_PTR ObjectTypeName,
+    __in ULONG_PTR ObjectName,
+    __in_opt ULONG_PTR SecurityDescriptor,
+    __in ULONG_PTR ClientToken,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR GrantedAccess,
+    __in_opt ULONG_PTR Privileges,
+    __in PINT+32 ObjectCreation,
+    __in PINT+32 AccessGranted,
+    __out PINT+32 GenerateOnClose
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtPrivilegeObjectAuditAlarm (
+    __in ULONG_PTR SubsystemName,
+    __in_opt PVOID HandleId,
+    __in ULONG_PTR ClientToken,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR Privileges,
+    __in PINT+32 AccessGranted
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtCloseObjectAuditAlarm (
+    __in ULONG_PTR SubsystemName,
+    __in_opt PVOID HandleId,
+    __in PINT+32 GenerateOnClose
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtDeleteObjectAuditAlarm (
+    __in ULONG_PTR SubsystemName,
+    __in_opt PVOID HandleId,
+    __in PINT+32 GenerateOnClose
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtPrivilegedServiceAuditAlarm (
+    __in ULONG_PTR SubsystemName,
+    __in ULONG_PTR ServiceName,
+    __in ULONG_PTR ClientToken,
+    __in ULONG_PTR Privileges,
+    __in PINT+32 AccessGranted
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtSetInformationThread (
+    __in ULONG_PTR ThreadHandle,
+    __in ULONG_PTR ThreadInformationClass,
+    __in_bcount(4) PVOID ThreadInformation,
+    __in INT32 ThreadInformationLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtCreateFile (
+    __out ULONG_PTR FileHandle,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR ObjectAttributes,
+    __out ULONG_PTR IoStatusBlock,
+    __in_opt ULONG_PTR AllocationSize,
+    __in INT32 FileAttributes,
+    __in INT32 ShareAccess,
+    __in INT32 CreateDisposition,
+    __in INT32 CreateOptions,
+    __in_bcount_opt(11) PVOID EaBuffer,
+    __in INT32 EaLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtDeviceIoControlFile (
+    __in ULONG_PTR FileHandle,
+    __in_opt ULONG_PTR Event,
+    __in_opt ULONG_PTR ApcRoutine,
+    __in_opt PVOID ApcContext,
+    __out ULONG_PTR IoStatusBlock,
+    __in INT32 IoControlCode,
+    __in_bcount_opt(8) PVOID InputBuffer,
+    __in INT32 InputBufferLength,
+    __out_bcount_opt(10) PVOID OutputBuffer,
+    __in INT32 OutputBufferLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtFsControlFile (
+    __in ULONG_PTR FileHandle,
+    __in_opt ULONG_PTR Event,
+    __in_opt ULONG_PTR ApcRoutine,
+    __in_opt PVOID ApcContext,
+    __out ULONG_PTR IoStatusBlock,
+    __in INT32 FsControlCode,
+    __in_bcount_opt(8) PVOID InputBuffer,
+    __in INT32 InputBufferLength,
+    __out_bcount_opt(10) PVOID OutputBuffer,
+    __in INT32 OutputBufferLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtLockFile (
+    __in ULONG_PTR FileHandle,
+    __in_opt ULONG_PTR Event,
+    __in_opt ULONG_PTR ApcRoutine,
+    __in_opt PVOID ApcContext,
+    __out ULONG_PTR IoStatusBlock,
+    __in ULONG_PTR ByteOffset,
+    __in ULONG_PTR Length,
+    __in INT32 Key,
+    __in PINT+32 FailImmediately,
+    __in PINT+32 ExclusiveLock
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtOpenFile (
+    __out ULONG_PTR FileHandle,
+    __in ULONG_PTR DesiredAccess,
+    __in ULONG_PTR ObjectAttributes,
+    __out ULONG_PTR IoStatusBlock,
+    __in INT32 ShareAccess,
+    __in INT32 OpenOptions
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtQueryDirectoryFile (
+    __in ULONG_PTR FileHandle,
+    __in_opt ULONG_PTR Event,
+    __in_opt ULONG_PTR ApcRoutine,
+    __in_opt PVOID ApcContext,
+    __out ULONG_PTR IoStatusBlock,
+    __out_bcount(7) PVOID FileInformation,
+    __in INT32 Length,
+    __in ULONG_PTR FileInformationClass,
+    __in PINT+32 ReturnSingleEntry,
+    __in_opt ULONG_PTR FileName,
+    __in PINT+32 RestartScan
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtQueryInformationFile (
+    __in ULONG_PTR FileHandle,
+    __out ULONG_PTR IoStatusBlock,
+    __out_bcount(4) PVOID FileInformation,
+    __in INT32 Length,
+    __in ULONG_PTR FileInformationClass
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtQueryQuotaInformationFile (
+    __in ULONG_PTR FileHandle,
+    __out ULONG_PTR IoStatusBlock,
+    __out_bcount(4) PVOID Buffer,
+    __in INT32 Length,
+    __in PINT+32 ReturnSingleEntry,
+    __in_bcount_opt(7) PVOID SidList,
+    __in INT32 SidListLength,
+    __in_opt ULONG_PTR StartSid,
+    __in PINT+32 RestartScan
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtQueryVolumeInformationFile (
+    __in ULONG_PTR FileHandle,
+    __out ULONG_PTR IoStatusBlock,
+    __out_bcount(4) PVOID FsInformation,
+    __in INT32 Length,
+    __in ULONG_PTR FsInformationClass
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtReadFile (
+    __in ULONG_PTR FileHandle,
+    __in_opt ULONG_PTR Event,
+    __in_opt ULONG_PTR ApcRoutine,
+    __in_opt PVOID ApcContext,
+    __out ULONG_PTR IoStatusBlock,
+    __out_bcount(7) PVOID Buffer,
+    __in INT32 Length,
+    __in_opt ULONG_PTR ByteOffset,
+    __in_opt PINT+64 Key
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtSetInformationFile (
+    __in ULONG_PTR FileHandle,
+    __out ULONG_PTR IoStatusBlock,
+    __in_bcount(4) PVOID FileInformation,
+    __in INT32 Length,
+    __in ULONG_PTR FileInformationClass
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtSetQuotaInformationFile (
+    __in ULONG_PTR FileHandle,
+    __out ULONG_PTR IoStatusBlock,
+    __in_bcount(4) PVOID Buffer,
+    __in INT32 Length
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtSetVolumeInformationFile (
+    __in ULONG_PTR FileHandle,
+    __out ULONG_PTR IoStatusBlock,
+    __in_bcount(4) PVOID FsInformation,
+    __in INT32 Length,
+    __in ULONG_PTR FsInformationClass
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtWriteFile (
+    __in ULONG_PTR FileHandle,
+    __in_opt ULONG_PTR Event,
+    __in_opt ULONG_PTR ApcRoutine,
+    __in_opt PVOID ApcContext,
+    __out ULONG_PTR IoStatusBlock,
+    __in_bcount(7) PVOID Buffer,
+    __in INT32 Length,
+    __in_opt ULONG_PTR ByteOffset,
+    __in_opt PINT+64 Key
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtUnlockFile (
+    __in ULONG_PTR FileHandle,
+    __out ULONG_PTR IoStatusBlock,
+    __in ULONG_PTR ByteOffset,
+    __in ULONG_PTR Length,
+    __in INT32 Key
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtQueryObject (
+    __in_opt ULONG_PTR Handle,
+    __in ULONG_PTR ObjectInformationClass,
+    __out_bcount_opt(4) PVOID ObjectInformation,
+    __in INT32 ObjectInformationLength,
+    __out_opt PINT+64 ReturnLength
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtSetSecurityObject (
+    __in ULONG_PTR Handle,
+    __in ULONG_PTR SecurityInformation,
+    __in ULONG_PTR SecurityDescriptor
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtQuerySecurityObject (
+    __in ULONG_PTR Handle,
+    __in ULONG_PTR SecurityInformation,
+    __out_bcount_opt(4) ULONG_PTR SecurityDescriptor,
+    __in INT32 Length,
+    __out PINT+64 LengthNeeded
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtClose (
+    __in ULONG_PTR Handle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtCreateSection (
+    __out ULONG_PTR SectionHandle,
+    __in ULONG_PTR DesiredAccess,
+    __in_opt ULONG_PTR ObjectAttributes,
+    __in_opt ULONG_PTR MaximumSize,
+    __in INT32 SectionPageProtection,
+    __in INT32 AllocationAttributes,
+    __in_opt ULONG_PTR FileHandle
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtAllocateVirtualMemory (
+    __in ULONG_PTR ProcessHandle,
+    __inout PVOID *BaseAddress,
+    __in ULONG_PTR ZeroBits,
+    __inout ULONG_PTR RegionSize,
+    __in INT32 AllocationType,
+    __in INT32 Protect
+    );
+
+_Success_(return != 0)
+NTSTATUS
+NTAPI
+NtFreeVirtualMemory (
+    __in ULONG_PTR ProcessHandle,
+    __inout __drv_freesMem(Mem) PVOID *BaseAddress,
+    __inout ULONG_PTR RegionSize,
+    __in INT32 FreeType
+    );
+
