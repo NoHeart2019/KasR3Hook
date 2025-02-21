@@ -1,3 +1,4 @@
+#此项目不在更新。
 # KasR3Hook （intel Ept R3 Hook）
 # 应用程序Api日志程序
 ## 简介
